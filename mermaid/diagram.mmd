@@ -187,6 +187,30 @@ REG6_3_3 -- Goal --> SD7_4_3
 %% =====================================================
 %% Sudden Death (GENERIC, LOOPING)
 %% =====================================================
+%% SD_NEXT_0_0["Sudden Death<br/>(0-0)<br/>A: 2.94 | B: 1.52"]:::suddenDeath
+
+%% SD_NEXT_0_0 -- "A Miss" --> SD_A_MISS
+%% SD_NEXT_0_0 -- "A Goal" --> SD_A_GOAL
+
+%% SD_A_MISS["A Miss<br/>(0-0)"]:::suddenDeath
+%% SD_A_GOAL["A Goal<br/>(1-0)"]:::suddenDeath
+
+%% SD_A_MISS -- "B Miss" --> SD_TIE
+%% SD_A_MISS -- "B Goal" --> SD_BWIN
+
+%% SD_A_GOAL -- "B Miss" --> SD_AWIN
+%% SD_A_GOAL -- "B Goal" --> SD_TIE
+
+%% SD_TIE["Tie continues<br/>A: 2.00 | B: 2.00"]:::suddenDeath
+%% SD_TIE --> SD_NEXT_0_0
+
+%% =====================================================
+%% Entry into Sudden Death
+%% =====================================================
+%% REG6_0_0 --> SD_NEXT_0_0
+%% REG6_1_1 --> SD_NEXT_0_0
+%% REG6_2_2 --> SD_NEXT_0_0
+%% REG6_3_3 --> SD_NEXT_0_0
 
 SD_AWIN["Team A Wins<br/>A: 1.00 | B: INF"]:::terminalA
 SD_BWIN["Team B Wins<br/>A: INF | B: 1.00"]:::terminalB
