@@ -32,7 +32,7 @@ classDef terminalB fill:#d63031,stroke:#6D0000,stroke-width:3px,color:#fff
 %% :::startNode applies the style
 
 subgraph Phase_Start["Initial State"]
-  S0["(0-0)<br/>A: 2.00 | B: 2.00"]:::startNode
+  S0["Start of Shootout<br/>(0-0)<br/>A: 2.56 | B: 1.64"]:::startNode
 end
 
 %% =====================================================
@@ -62,44 +62,24 @@ end
 subgraph REG_4["Shot 4 - Team B attempt 2 - End of Round 2"]
   REG4_0_0["(0-0)<br/>A: 2.00 | B: 2.00"]:::neutral
   REG4_0_1["(0-1)<br/>A: 9.09 | B: 1.12"]:::teamB_Adv
-  REG4_0_2["(0-2)<br/>A: INF | B: 1.00"]:::terminalB
   REG4_1_0["(1-0)<br/>A: 1.12 | B: 9.09"]:::teamA_Adv
   REG4_1_1["(1-1)<br/>A: 2.00 | B: 2.00"]:::neutral
   REG4_1_2["(1-2)<br/>A: 9.09 | B: 1.12"]:::teamB_Adv
-  REG4_2_0["(2-0)<br/>A: 1.00 | B: INF"]:::terminalA
   REG4_2_1["(2-1)<br/>A: 1.12 | B: 9.09"]:::teamA_Adv
   REG4_2_2["(2-2)<br/>A: 2.00 | B: 2.00"]:::neutral
 end
 subgraph REG_5["Shot 5 - Team A attempt 3"]
   REG5_0_0["(0-0)<br/>A: 2.94 | B: 1.52"]:::teamB_Adv
-  REG5_0_1["(0-1)<br/>A: 6.25 | B: 1.19"]:::teamB_Adv
-%%   REG5_0_2["(0-2)<br/>A: INF | B: 1.00"]:::terminalB
   REG5_1_0["(1-0)<br/>A: 1.19 | B: 6.25"]:::teamA_Adv
   REG5_1_1["(1-1)<br/>A: 2.94 | B: 1.52"]:::teamB_Adv
-  REG5_1_2["(1-2)<br/>A: 6.25 | B: 1.19"]:::teamB_Adv
-  REG5_2_0["(2-0)<br/>A: 1.00 | B: INF"]:::terminalA
   REG5_2_1["(2-1)<br/>A: 1.19 | B: 6.25"]:::teamA_Adv
   REG5_2_2["(2-2)<br/>A: 2.94 | B: 1.52"]:::teamB_Adv
-%%   REG5_3_0["(3-0)<br/>A: 1.00 | B: INF"]:::terminalA
-  REG5_3_1["(3-1)<br/>A: 1.00 | B: INF"]:::terminalA
   REG5_3_2["(3-2)<br/>A: 1.19 | B: 6.25"]:::teamA_Adv
 end
 subgraph REG_6["Shot 6 - Team B attempt 3 - End of Round 3"]
   REG6_0_0["(0-0)<br/>A: 2.00 | B: 2.00"]:::neutral
-  REG6_0_1["(0-1)<br/>A: INF | B: 1.00"]:::terminalB
-  REG6_0_2["(0-2)<br/>A: INF | B: 1.00"]:::terminalB
-%%   REG6_0_3["(0-3)<br/>A: INF | B: 1.00"]:::terminalB
-  REG6_1_0["(1-0)<br/>A: 1.00 | B: INF"]:::terminalA
   REG6_1_1["(1-1)<br/>A: 2.00 | B: 2.00"]:::neutral
-  REG6_1_2["(1-2)<br/>A: INF | B: 1.00"]:::terminalB
-  REG6_1_3["(1-3)<br/>A: INF | B: 1.00"]:::terminalB
-%%   REG6_2_0["(2-0)<br/>A: 1.00 | B: INF"]:::terminalA
-  REG6_2_1["(2-1)<br/>A: 1.00 | B: INF"]:::terminalA
   REG6_2_2["(2-2)<br/>A: 2.00 | B: 2.00"]:::neutral
-  REG6_2_3["(2-3)<br/>A: INF | B: 1.00"]:::terminalB
-%%   REG6_3_0["(3-0)<br/>A: 1.00 | B: INF"]:::terminalA
-%%   REG6_3_1["(3-1)<br/>A: 1.00 | B: INF"]:::terminalA
-  REG6_3_2["(3-2)<br/>A: 1.00 | B: INF"]:::terminalA
   REG6_3_3["(3-3)<br/>A: 2.00 | B: 2.00"]:::neutral
 end
 
@@ -135,44 +115,40 @@ REG2_1_1 -- Goal --> REG3_2_1
 REG3_0_0 -- Miss --> REG4_0_0
 REG3_0_0 -- Goal --> REG4_0_1
 REG3_0_1 -- Miss --> REG4_0_1
-REG3_0_1 -- Goal --> REG4_0_2
+%% REG3_0_1 -- Goal would lead to REG4_0_2 (terminal - game over)
 REG3_1_0 -- Miss --> REG4_1_0
 REG3_1_0 -- Goal --> REG4_1_1
 REG3_1_1 -- Miss --> REG4_1_1
 REG3_1_1 -- Goal --> REG4_1_2
-REG3_2_0 -- Miss --> REG4_2_0
+%% REG3_2_0 -- Miss would lead to REG4_2_0 (terminal - game over)
 REG3_2_0 -- Goal --> REG4_2_1
 REG3_2_1 -- Miss --> REG4_2_1
 REG3_2_1 -- Goal --> REG4_2_2
 REG4_0_0 -- Miss --> REG5_0_0
 REG4_0_0 -- Goal --> REG5_1_0
-REG4_0_1 -- Miss --> REG5_0_1
+%% REG4_0_1 -- Miss would lead to REG5_0_1 (terminal - game over)
 REG4_0_1 -- Goal --> REG5_1_1
 REG4_1_0 -- Miss --> REG5_1_0
-REG4_1_0 -- Goal --> REG5_2_0
+%% REG4_1_0 -- Goal would lead to REG5_2_0 (terminal - game over)
 REG4_1_1 -- Miss --> REG5_1_1
 REG4_1_1 -- Goal --> REG5_2_1
-REG4_1_2 -- Miss --> REG5_1_2
+%% REG4_1_2 -- Miss would lead to REG5_1_2 (terminal - game over)
 REG4_1_2 -- Goal --> REG5_2_2
 REG4_2_1 -- Miss --> REG5_2_1
-REG4_2_1 -- Goal --> REG5_3_1
+%% REG4_2_1 -- Goal would lead to REG5_3_1 (terminal - game over)
 REG4_2_2 -- Miss --> REG5_2_2
 REG4_2_2 -- Goal --> REG5_3_2
 REG5_0_0 -- Miss --> REG6_0_0
-REG5_0_0 -- Goal --> REG6_0_1
-REG5_0_1 -- Miss --> REG6_0_1
-REG5_0_1 -- Goal --> REG6_0_2
-REG5_1_0 -- Miss --> REG6_1_0
+%% REG5_0_0 -- Goal would lead to REG6_0_1 (terminal - game over)
+%% REG5_1_0 -- Miss would lead to REG6_1_0 (terminal - game over)
 REG5_1_0 -- Goal --> REG6_1_1
 REG5_1_1 -- Miss --> REG6_1_1
-REG5_1_1 -- Goal --> REG6_1_2
-REG5_1_2 -- Miss --> REG6_1_2
-REG5_1_2 -- Goal --> REG6_1_3
-REG5_2_1 -- Miss --> REG6_2_1
+%% REG5_1_1 -- Goal would lead to REG6_1_2 (terminal - game over)
+%% REG5_2_1 -- Miss would lead to REG6_2_1 (terminal - game over)
 REG5_2_1 -- Goal --> REG6_2_2
 REG5_2_2 -- Miss --> REG6_2_2
-REG5_2_2 -- Goal --> REG6_2_3
-REG5_3_2 -- Miss --> REG6_3_2
+%% REG5_2_2 -- Goal would lead to REG6_2_3 (terminal - game over)
+%% REG5_3_2 -- Miss would lead to REG6_3_2 (terminal - game over)
 REG5_3_2 -- Goal --> REG6_3_3
 REG6_0_0 -- Miss --> SD7_0_0
 REG6_0_0 -- Goal --> SD7_1_0
@@ -239,5 +215,7 @@ SD7_4_3 -- "B Goal" --> SD_TIE
 %% =====================================================
 %% - Default = Miss (red)
 %% - Odd indices = Goal (green) because we always write Miss then Goal
+%% - We have 48 regulation transitions (indices 0-47), so odd indices are 1,3,5...47
+%% - Terminal states removed to reduce clutter - edges leading to wins are commented out
 linkStyle default stroke:#d63031,stroke-width:2px
-linkStyle 1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59,61,63,65,67,69,71,73,75,77,79 stroke:#00b894,stroke-width:2px
+linkStyle 1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47 stroke:#00b894,stroke-width:2px
