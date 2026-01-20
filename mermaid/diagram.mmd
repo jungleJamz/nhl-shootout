@@ -32,7 +32,7 @@ classDef terminalB fill:#d63031,stroke:#6D0000,stroke-width:3px,color:#fff
 %% :::startNode applies the style
 
 subgraph Phase_Start["Initial State"]
-  S0["Start of Shootout<br/>(0-0)<br/>A: 2.56 | B: 1.64"]:::startNode
+  S0("(0-0)<br/>A: 2.00 | B: 2.00"):::startNode
 end
 
 %% =====================================================
@@ -42,56 +42,56 @@ end
 %% REG = Shot Number
 %% REG1_0_1 = score (A goals = 1 | B goals = 0)
 subgraph REG_1["Shot 1 - Team A attempt 1"]
-  REG1_0_0["(0-0)<br/>A: 2.56 | B: 1.64"]:::teamB_Adv
-  REG1_1_0["(1-0)<br/>A: 1.39 | B: 3.57"]:::teamA_Adv
+  REG1_0_0("(0-0)<br/>A: 2.56 | B: 1.64"):::teamB_Adv
+  REG1_1_0("(1-0)<br/>A: 1.39 | B: 3.57"):::teamA_Adv
 end
 subgraph REG_2["Shot 2 - Team B attempt 1 - End of Round 1"]
-  REG2_0_0["(0-0)<br/>A: 2.00 | B: 2.00"]:::neutral
-  REG2_0_1["(0-1)<br/>A: 5.88 | B: 1.20"]:::teamB_Adv
-  REG2_1_0["(1-0)<br/>A: 1.20 | B: 5.88"]:::teamA_Adv
-  REG2_1_1["(1-1)<br/>A: 2.00 | B: 2.00"]:::neutral
+  REG2_0_0("(0-0)<br/>A: 2.00 | B: 2.00"):::neutral
+  REG2_0_1("(0-1)<br/>A: 5.88 | B: 1.20"):::teamB_Adv
+  REG2_1_0("(1-0)<br/>A: 1.20 | B: 5.88"):::teamA_Adv
+  REG2_1_1("(1-1)<br/>A: 2.00 | B: 2.00"):::neutral
 end
 subgraph REG_3["Shot 3 - Team A attempt 2"]
-  REG3_0_0["(0-0)<br/>A: 2.63 | B: 1.61"]:::teamB_Adv
-  REG3_0_1["(0-1)<br/>A: 14.29 | B: 1.08"]:::teamB_Adv
-  REG3_1_0["(1-0)<br/>A: 1.32 | B: 4.17"]:::teamA_Adv
-  REG3_1_1["(1-1)<br/>A: 2.63 | B: 1.61"]:::teamB_Adv
-  REG3_2_0["(2-0)<br/>A: 1.04 | B: 25.00"]:::teamA_Adv
-  REG3_2_1["(2-1)<br/>A: 1.32 | B: 4.17"]:::teamA_Adv
+  REG3_0_0("(0-0)<br/>A: 2.63 | B: 1.61"):::teamB_Adv
+  REG3_0_1("(0-1)<br/>A: 14.29 | B: 1.08"):::teamB_Adv
+  REG3_1_0("(1-0)<br/>A: 1.32 | B: 4.17"):::teamA_Adv
+  REG3_1_1("(1-1)<br/>A: 2.63 | B: 1.61"):::teamB_Adv
+  REG3_2_0("(2-0)<br/>A: 1.04 | B: 25.00"):::teamA_Adv
+  REG3_2_1("(2-1)<br/>A: 1.32 | B: 4.17"):::teamA_Adv
 end
 subgraph REG_4["Shot 4 - Team B attempt 2 - End of Round 2"]
-  REG4_0_0["(0-0)<br/>A: 2.00 | B: 2.00"]:::neutral
-  REG4_0_1["(0-1)<br/>A: 9.09 | B: 1.12"]:::teamB_Adv
-  REG4_1_0["(1-0)<br/>A: 1.12 | B: 9.09"]:::teamA_Adv
-  REG4_1_1["(1-1)<br/>A: 2.00 | B: 2.00"]:::neutral
-  REG4_1_2["(1-2)<br/>A: 9.09 | B: 1.12"]:::teamB_Adv
-  REG4_2_1["(2-1)<br/>A: 1.12 | B: 9.09"]:::teamA_Adv
-  REG4_2_2["(2-2)<br/>A: 2.00 | B: 2.00"]:::neutral
+  REG4_0_0("(0-0)<br/>A: 2.00 | B: 2.00"):::neutral
+  REG4_0_1("(0-1)<br/>A: 9.09 | B: 1.12"):::teamB_Adv
+  REG4_1_0("(1-0)<br/>A: 1.12 | B: 9.09"):::teamA_Adv
+  REG4_1_1("(1-1)<br/>A: 2.00 | B: 2.00"):::neutral
+  REG4_1_2("(1-2)<br/>A: 9.09 | B: 1.12"):::teamB_Adv
+  REG4_2_1("(2-1)<br/>A: 1.12 | B: 9.09"):::teamA_Adv
+  REG4_2_2("(2-2)<br/>A: 2.00 | B: 2.00"):::neutral
 end
 subgraph REG_5["Shot 5 - Team A attempt 3"]
-  REG5_0_0["(0-0)<br/>A: 2.94 | B: 1.52"]:::teamB_Adv
-  REG5_1_0["(1-0)<br/>A: 1.19 | B: 6.25"]:::teamA_Adv
-  REG5_1_1["(1-1)<br/>A: 2.94 | B: 1.52"]:::teamB_Adv
-  REG5_2_1["(2-1)<br/>A: 1.19 | B: 6.25"]:::teamA_Adv
-  REG5_2_2["(2-2)<br/>A: 2.94 | B: 1.52"]:::teamB_Adv
-  REG5_3_2["(3-2)<br/>A: 1.19 | B: 6.25"]:::teamA_Adv
+  REG5_0_0("(0-0)<br/>A: 2.94 | B: 1.52"):::teamB_Adv
+  REG5_1_0("(1-0)<br/>A: 1.19 | B: 6.25"):::teamA_Adv
+  REG5_1_1("(1-1)<br/>A: 2.94 | B: 1.52"):::teamB_Adv
+  REG5_2_1("(2-1)<br/>A: 1.19 | B: 6.25"):::teamA_Adv
+  REG5_2_2("(2-2)<br/>A: 2.94 | B: 1.52"):::teamB_Adv
+  REG5_3_2("(3-2)<br/>A: 1.19 | B: 6.25"):::teamA_Adv
 end
 subgraph REG_6["Shot 6 - Team B attempt 3 - End of Round 3"]
-  REG6_0_0["(0-0)<br/>A: 2.00 | B: 2.00"]:::neutral
-  REG6_1_1["(1-1)<br/>A: 2.00 | B: 2.00"]:::neutral
-  REG6_2_2["(2-2)<br/>A: 2.00 | B: 2.00"]:::neutral
-  REG6_3_3["(3-3)<br/>A: 2.00 | B: 2.00"]:::neutral
+  REG6_0_0("(0-0)<br/>A: 2.00 | B: 2.00"):::neutral
+  REG6_1_1("(1-1)<br/>A: 2.00 | B: 2.00"):::neutral
+  REG6_2_2("(2-2)<br/>A: 2.00 | B: 2.00"):::neutral
+  REG6_3_3("(3-3)<br/>A: 2.00 | B: 2.00"):::neutral
 end
 
 subgraph SD_7["Sudden Death - Team A shoots then Team B responds"]
-  SD7_0_0["(0-0)<br/>A: 2.94 | B: 1.52"]:::suddenDeath
-  SD7_1_0["(1-0)<br/>A: 1.19 | B: 6.25"]:::suddenDeath
-  SD7_1_1["(1-1)<br/>A: 2.94 | B: 1.52"]:::suddenDeath
-  SD7_2_1["(2-1)<br/>A: 1.19 | B: 6.25"]:::suddenDeath
-  SD7_2_2["(2-2)<br/>A: 2.94 | B: 1.52"]:::suddenDeath
-  SD7_3_2["(3-2)<br/>A: 1.19 | B: 6.25"]:::suddenDeath
-  SD7_3_3["(3-3)<br/>A: 2.94 | B: 1.52"]:::suddenDeath
-  SD7_4_3["(4-3)<br/>A: 1.19 | B: 6.25"]:::suddenDeath
+  SD7_0_0("(0-0)<br/>A: 2.94 | B: 1.52"):::suddenDeath
+  SD7_1_0("(1-0)<br/>A: 1.19 | B: 6.25"):::suddenDeath
+  SD7_1_1("(1-1)<br/>A: 2.94 | B: 1.52"):::suddenDeath
+  SD7_2_1("(2-1)<br/>A: 1.19 | B: 6.25"):::suddenDeath
+  SD7_2_2("(2-2)<br/>A: 2.94 | B: 1.52"):::suddenDeath
+  SD7_3_2("(3-2)<br/>A: 1.19 | B: 6.25"):::suddenDeath
+  SD7_3_3("(3-3)<br/>A: 2.94 | B: 1.52"):::suddenDeath
+  SD7_4_3("(4-3)<br/>A: 1.19 | B: 6.25"):::suddenDeath
 end
 
 %% =====================================================
@@ -160,39 +160,12 @@ REG6_3_3 -- Miss --> SD7_3_3
 REG6_3_3 -- Goal --> SD7_4_3
 
 
-%% =====================================================
-%% Sudden Death (GENERIC, LOOPING)
-%% =====================================================
-%% SD_NEXT_0_0["Sudden Death<br/>(0-0)<br/>A: 2.94 | B: 1.52"]:::suddenDeath
 
-%% SD_NEXT_0_0 -- "A Miss" --> SD_A_MISS
-%% SD_NEXT_0_0 -- "A Goal" --> SD_A_GOAL
-
-%% SD_A_MISS["A Miss<br/>(0-0)"]:::suddenDeath
-%% SD_A_GOAL["A Goal<br/>(1-0)"]:::suddenDeath
-
-%% SD_A_MISS -- "B Miss" --> SD_TIE
-%% SD_A_MISS -- "B Goal" --> SD_BWIN
-
-%% SD_A_GOAL -- "B Miss" --> SD_AWIN
-%% SD_A_GOAL -- "B Goal" --> SD_TIE
-
-%% SD_TIE["Tie continues<br/>A: 2.00 | B: 2.00"]:::suddenDeath
-%% SD_TIE --> SD_NEXT_0_0
-
-%% =====================================================
-%% Entry into Sudden Death
-%% =====================================================
-%% REG6_0_0 --> SD_NEXT_0_0
-%% REG6_1_1 --> SD_NEXT_0_0
-%% REG6_2_2 --> SD_NEXT_0_0
-%% REG6_3_3 --> SD_NEXT_0_0
-
-SD_AWIN["Team A Wins<br/>A: 1.00 | B: INF"]:::terminalA
-SD_BWIN["Team B Wins<br/>A: INF | B: 1.00"]:::terminalB
-SD_TIE["Tie continues<br/>A: 2.00 | B: 2.00"]:::suddenDeath
-SD_AWIN["Team A Wins<br/>A: 1.00 | B: INF"]:::terminalA
-SD_BWIN["Team B Wins<br/>A: INF | B: 1.00"]:::terminalB
+SD_AWIN("Team A Wins<br/>A: 1.00 | B: INF"):::terminalA
+SD_BWIN("Team B Wins<br/>A: INF | B: 1.00"):::terminalB
+SD_TIE("Tie continues<br/>A: 2.00 | B: 2.00"):::suddenDeath
+SD_AWIN("Team A Wins<br/>A: 1.00 | B: INF"):::terminalA
+SD_BWIN("Team B Wins<br/>A: INF | B: 1.00"):::terminalB
 SD7_0_0 -- "B Miss" --> SD_TIE
 SD7_0_0 -- "B Goal" --> SD_BWIN
 SD7_1_0 -- "B Miss" --> SD_AWIN
