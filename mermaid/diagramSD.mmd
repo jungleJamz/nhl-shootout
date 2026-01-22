@@ -1,7 +1,7 @@
 graph TD
-%% UUses only 2 game state nodes to model sudden death
-%% Includes a loop back from SD_CONTINUES to SD_A_MISS to show the repeating nature of sudden death
-%% Less nodes, but more cluttered look
+%% Uses 8 seperate nodes to represent the different sudden death scenarios 
+%% Where each node represents a specific score state
+%% Less Clutter, but doesnt look as clean
 
 %% =====================================================
 %% Global Styling
@@ -87,18 +87,33 @@ subgraph REG_6["Shot 6 - Team B attempt 3 - End of Round 3"]
 end
 
 %% =====================================================
-%% Sudden Death - Uses 8 nodes to represent each score state
+%% Sudden Death - Game State Model (2 nodes with spacing)
 %% =====================================================
-subgraph SD_7["Sudden Death - Team A shoots then Team B responds"]
-  SD7_0_0("(0-0)<br/>A: 2.94 | B: 1.52"):::suddenDeath
-  SD7_1_0("(1-0)<br/>A: 1.19 | B: 6.25"):::suddenDeath
-  SD7_1_1("(1-1)<br/>A: 2.94 | B: 1.52"):::suddenDeath
-  SD7_2_1("(2-1)<br/>A: 1.19 | B: 6.25"):::suddenDeath
-  SD7_2_2("(2-2)<br/>A: 2.94 | B: 1.52"):::suddenDeath
-  SD7_3_2("(3-2)<br/>A: 1.19 | B: 6.25"):::suddenDeath
-  SD7_3_3("(3-3)<br/>A: 2.94 | B: 1.52"):::suddenDeath
-  SD7_4_3("(4-3)<br/>A: 1.19 | B: 6.25"):::suddenDeath
+subgraph SD_A["Sudden Death - Team A shoots"]
+  SD_A_MISS("A misses<br/>(Score Tied)<br/>A: 2.94 | B: 1.52"):::suddenDeath
+  SPACER_1[" "]:::invisible
+  SPACER_2[" "]:::invisible
+  SPACER_3[" "]:::invisible
+  SPACER_4[" "]:::invisible
+  SPACER_5[" "]:::invisible
+  SPACER_6[" "]:::invisible
+  SD_A_SCORE("A scores<br/>(Team A Leads by 1)<br/>A: 1.19 | B: 6.25"):::suddenDeath
 end
+
+subgraph SD_B["Sudden Death - Team B responds"]
+  SD_CONTINUES("Tie continues<br/>A: 2.00 | B: 2.00"):::suddenDeath
+  SPACER_7[" "]:::invisible
+  SPACER_8[" "]:::invisible
+  SPACER_9[" "]:::invisible
+  SD_AWIN("Team A Wins<br/>A: 1.00 | B: INF"):::terminalA
+  SPACER_10[" "]:::invisible
+  SPACER_11[" "]:::invisible
+  SPACER_12[" "]:::invisible
+  SD_BWIN("Team B Wins<br/>A: INF | B: 1.00"):::terminalB
+end
+
+%% Define invisible class for spacers
+classDef invisible fill:none,stroke:none,color:transparent
 
 %% =====================================================
 %% Regulation Transitions
@@ -156,45 +171,44 @@ REG5_2_2 -- Miss --> REG6_2_2
 %% REG5_2_2 -- Goal would lead to REG6_2_3 (terminal - game over)
 %% REG5_3_2 -- Miss would lead to REG6_3_2 (terminal - game over)
 REG5_3_2 -- Goal --> REG6_3_3
-REG6_0_0 -- Miss --> SD7_0_0
-REG6_0_0 -- Goal --> SD7_1_0
-REG6_1_1 -- Miss --> SD7_1_1
-REG6_1_1 -- Goal --> SD7_2_1
-REG6_2_2 -- Miss --> SD7_2_2
-REG6_2_2 -- Goal --> SD7_3_2
-REG6_3_3 -- Miss --> SD7_3_3
-REG6_3_3 -- Goal --> SD7_4_3
-
-
-
-SD_AWIN("Team A Wins<br/>A: 1.00 | B: INF"):::terminalA
-SD_BWIN("Team B Wins<br/>A: INF | B: 1.00"):::terminalB
-SD_TIE("Tie continues<br/>A: 2.00 | B: 2.00"):::suddenDeath
-SD_AWIN("Team A Wins<br/>A: 1.00 | B: INF"):::terminalA
-SD_BWIN("Team B Wins<br/>A: INF | B: 1.00"):::terminalB
-SD7_0_0 -- "B Miss" --> SD_TIE
-SD7_0_0 -- "B Goal" --> SD_BWIN
-SD7_1_0 -- "B Miss" --> SD_AWIN
-SD7_1_0 -- "B Goal" --> SD_TIE
-SD7_1_1 -- "B Miss" --> SD_TIE
-SD7_1_1 -- "B Goal" --> SD_BWIN
-SD7_2_1 -- "B Miss" --> SD_AWIN
-SD7_2_1 -- "B Goal" --> SD_TIE
-SD7_2_2 -- "B Miss" --> SD_TIE
-SD7_2_2 -- "B Goal" --> SD_BWIN
-SD7_3_2 -- "B Miss" --> SD_AWIN
-SD7_3_2 -- "B Goal" --> SD_TIE
-SD7_3_3 -- "B Miss" --> SD_TIE
-SD7_3_3 -- "B Goal" --> SD_BWIN
-SD7_4_3 -- "B Miss" --> SD_AWIN
-SD7_4_3 -- "B Goal" --> SD_TIE
 
 %% =====================================================
-%% Link Styling (Regulation Only)
+%% Round 3 to Sudden Death Transitions
 %% =====================================================
-%% - Default = Miss (red)
-%% - Odd indices = Goal (green) because we always write Miss then Goal
-%% - We have 48 regulation transitions (indices 0-47), so odd indices are 1,3,5...47
-%% - Terminal states removed to reduce clutter - edges leading to wins are commented out
+REG6_0_0 -- Miss --> SD_A_MISS
+REG6_0_0 -- Goal --> SD_A_SCORE
+REG6_1_1 -- Miss --> SD_A_MISS
+REG6_1_1 -- Goal --> SD_A_SCORE
+REG6_2_2 -- Miss --> SD_A_MISS
+REG6_2_2 -- Goal --> SD_A_SCORE
+REG6_3_3 -- Miss --> SD_A_MISS
+REG6_3_3 -- Goal --> SD_A_SCORE
+
+%% =====================================================
+%% Sudden Death Transitions
+%% =====================================================
+%% Team B responds to Team A's miss
+SD_A_MISS -- "B Miss" --> SD_CONTINUES
+SD_A_MISS -- "B Goal" --> SD_BWIN
+
+%% Team B responds to Team A's score
+SD_A_SCORE -- "B Miss" --> SD_AWIN
+SD_A_SCORE -- "B Goal" --> SD_CONTINUES
+
+%% Loop back to start of sudden death if tie continues
+SD_CONTINUES -- "Next round" --> SD_A_MISS
+
+%% =====================================================
+%% Link Styling
+%% =====================================================
+%% Default = Miss (red)
+%% Odd indices = Goal (green) because we always write Miss then Goal
+%% 
+%% Regulation transitions: Links 0-39 (odd indices are goals)
+%% Round 3 to SD: Links 40-47 (odd indices are goals)
+%% SD internal: Links 48-52 (49 and 51 are "B Goal" = green)
 linkStyle default stroke:#d63031,stroke-width:2px,color:#d63031
-linkStyle 1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47 stroke:#00b894,stroke-width:2px,color:#00b894
+linkStyle 1,3,5,7,9,11,13,15,18,20,21,23,25,26,29,30,33,35,37,39,41,43,45,47,49,51 stroke:#00b894,stroke-width:2px,color:#00b894
+
+%% Optional: Style the loop back as neutral yellow
+linkStyle 52 stroke:#ffc107,stroke-width:2px,color:#ffc107
