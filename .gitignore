@@ -35,3 +35,36 @@ lerna-debug.log*
 *.sw?
 
 .claude/
+
+# ===== LaTeX build artifacts =====
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.lol
+*.nav
+*.snm
+*.vrb
+*.idx
+*.ilg
+*.ind
+
+# ===== TikZ / PGF =====
+tikzexternal/
+*.pgf
+
+# ===== OS / Editor =====
+.DS_Store
+.vscode/
+
+# ===== Optional =====
+# *.pdf

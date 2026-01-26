@@ -1,3 +1,4 @@
+%% %%{init: {'theme': 'dark'}}%%
 graph TD
 %% Uses 8 seperate nodes to represent the different sudden death scenarios 
 %% Where each node represents a specific score state
@@ -89,26 +90,27 @@ end
 %% =====================================================
 %% Sudden Death - Game State Model (2 nodes with spacing)
 %% =====================================================
-subgraph SD_A["Sudden Death - Team A shoots"]
+
+subgraph SD_A["Sudden Death - Team A Shot"]
   SD_A_MISS("A misses<br/>(Score Tied)<br/>A: 2.94 | B: 1.52"):::suddenDeath
-  SPACER_1[" "]:::invisible
-  SPACER_2[" "]:::invisible
-  SPACER_3[" "]:::invisible
-  SPACER_4[" "]:::invisible
-  SPACER_5[" "]:::invisible
-  SPACER_6[" "]:::invisible
+  %% SPACER_1[" "]:::invisible
+  %% SPACER_2[" "]:::invisible
+  %% SPACER_3[" "]:::invisible
+  %% SPACER_4[" "]:::invisible
+  %% SPACER_5[" "]:::invisible
+  %% SPACER_6[" "]:::invisible
   SD_A_SCORE("A scores<br/>(Team A Leads by 1)<br/>A: 1.19 | B: 6.25"):::suddenDeath
 end
 
 subgraph SD_B["Sudden Death - Team B responds"]
   SD_CONTINUES("Tie continues<br/>A: 2.00 | B: 2.00"):::suddenDeath
-  SPACER_7[" "]:::invisible
-  SPACER_8[" "]:::invisible
-  SPACER_9[" "]:::invisible
+  %% SPACER_7[" "]:::invisible
+  %% SPACER_8[" "]:::invisible
+  %% SPACER_9[" "]:::invisible
   SD_AWIN("Team A Wins<br/>A: 1.00 | B: INF"):::terminalA
-  SPACER_10[" "]:::invisible
-  SPACER_11[" "]:::invisible
-  SPACER_12[" "]:::invisible
+  %% SPACER_10[" "]:::invisible
+  %% SPACER_11[" "]:::invisible
+  %% SPACER_12[" "]:::invisible
   SD_BWIN("Team B Wins<br/>A: INF | B: 1.00"):::terminalB
 end
 
